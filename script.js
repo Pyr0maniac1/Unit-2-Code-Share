@@ -1,77 +1,39 @@
-
-// Setting the scores and selecting our HTML elements.
-let computerScore = 1;
-let playerScore = 1;
-const pScore = document.getElementById('playerScore');
-const cScore = document.getElementById('computerScore');
-const buttons = document.querySelectorAll('.selection button');
-const showIcon = document.querySelector('.show i');
-const computerShowIcon = document.querySelector('.computer i');
-const randomClasses = ["fas fa-hand-rock", "fas fa-hand-paper","fas fa-hand-scissors"];
-const text = document.getElementById('demo');
-const text2 = document.getElementById('demo2');
-
-const game = () =>{
-    buttons.forEach(btn =>{
-        btn.addEventListener('click',(e)=>{
-           let clickedBtn = e.target.className;
-           showIcon.className = clickedBtn;
-           let randomNum = Math.floor(Math.random() * randomClasses.length);
-           computerShowIcon.className = randomClasses[randomNum];
-           if(showIcon.className === computerShowIcon.className){
-               pScore.innerHTML = pScore.innerHTML;
-               cScore.innerHTML = cScore.innerHTML;
-               text.innerHTML = "It's a Tie ! ";
-               text.style.color = 'orange';
-               text2.innerHTML = text.innerHTML;
-               text2.style.color = 'orange';
-           } 
-
-           else if(showIcon.className === randomClasses[0] && computerShowIcon.className === randomClasses[2]){
-               pScore.innerHTML = playerScore;
-               playerScore++;
-               text.innerHTML = "It's a Win ! ";
-               text.style.color = 'rgb(1, 146, 1)';
-               text2.innerHTML = text.innerHTML;
-               text2.style.color = 'rgb(1, 146, 1)';
-           }else if(showIcon.className === randomClasses[0] && computerShowIcon.className === randomClasses[1]){
-               cScore.innerHTML = computerScore;
-               computerScore++;
-               text.innerHTML = "You Loosed ! ";
-               text.style.color = 'red';
-               text2.innerHTML = text.innerHTML;
-               text2.style.color = 'red';
-           }else if(showIcon.className === randomClasses[1] && computerShowIcon.className === randomClasses[2]){
-               cScore.innerHTML = computerScore;
-               computerScore++;
-               text.innerHTML = "You Loosed ! ";
-               text.style.color = 'red';
-               text2.innerHTML = text.innerHTML;
-               text2.style.color = 'red';
-           }else if(showIcon.className === randomClasses[1] && computerShowIcon.className === randomClasses[0]){
-               pScore.innerHTML = playerScore;
-               playerScore++;
-               text.innerHTML = "It's a Win ! ";
-               text.style.color = 'rgb(1, 146, 1)';
-               text2.innerHTML = text.innerHTML;
-               text2.style.color = 'rgb(1, 146, 1)';
-           }else if(showIcon.className === randomClasses[2] && computerShowIcon.className === randomClasses[0]){
-               cScore.innerHTML = computerScore;
-               computerScore++;
-               text.innerHTML = "You Loosed ! ";
-               text.style.color = 'red';
-               text2.innerHTML = text.innerHTML;
-               text2.style.color = 'red';
-           }else if(showIcon.className === randomClasses[2] && computerShowIcon.className === randomClasses[1]){
-               pScore.innerHTML = playerScore;
-               playerScore++;
-               text.innerHTML = "It's a Win ! ";
-               text.style.color = 'rgb(1, 146, 1)';
-               text2.innerHTML = text.innerHTML;
-               text2.style.color = 'rgb(1, 146, 1)';
-           }
-        });
-    });
+var userChoice = prompt("Do you choose rock, paper or scissors?");
+var computerChoice = Math.random();
+if (computerChoice < 0.34) {
+computerChoice = "rock";
+} else if(computerChoice <= 0.67) {
+computerChoice = "paper";
+} else {
+computerChoice = "scissors";
 }
-
-game();
+var compare=function(choice1,choice2){
+if(choice1===choice2){
+return "The result is a tie!";
+}
+else if(choice1==="rock"){
+if(choice2==="scissors"){
+return "rock wins"
+}
+else if(choice2==="paper"){
+return "paper wins";
+}
+}
+else if(choice1==="paper"){
+if(choice2==="scissors"){
+return "scissors win"
+}
+else if(choice2==="rock"){
+return "paper wins";
+}
+}
+else if(choice1==="scissors"){
+if(choice2==="paper"){
+return "scissors win"
+}
+else if(choice2==="rock"){
+return "rock wins";
+}
+}
+}
+console.log(compare(userChoice,computerChoice));
