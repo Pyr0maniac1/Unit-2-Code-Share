@@ -10,30 +10,28 @@
 
 <body>
   <section class="game">
-    <div class="title"> Rock Paper Scissors</div>
+    <div class="title"><h1>Rock Paper Scissors</h1></div>
         <div class="score">
-          <div id="PlayerScore">
-            <h2>You Have</h2>
-            <p id="P-count">0</p>
+          </div class="id">
+            <div id="PlayerScore">
+             <h2>User:</h2>
+             <h3 id="P-count">0</h3>
           </div> 
-        <div id="ComScore">
-          <h2>Computer></h2>
-          <p id="C-count">0</p>
+          <div id="ComScore">
+            <h2>Computer: </h2>
+            <h3 id="C-count">0</h3>
+          </div>
         </div>
       </div>
+<div class="Output"><h2 id="Output">Results</h2></div>
 
-    <div class="move">Pick Your Move</div>
-
-    <Div class="movesLeft">Moves left: 10</Div>
-    
-    <div class="options" id="Moves">
-      <button id="Rock">Rock</button>
-      <button id="Paper">Paper</button>
-      <button id="Scissors">Scissors</button>
-    </div>
+    <Div class="movesLeft">
+      <h2> Moves Left:</h2>
+      <h3 id="Moves">10</h3>
+    </Div>
     <div class="result"></div>
          
-        <button class="reload"></button>
+        <button class="reload" onclick="game()">play</button>
   </section>
   
   <script src="script.js"></script>
