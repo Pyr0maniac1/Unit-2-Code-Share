@@ -17,6 +17,7 @@ if (computerChoice <= 0.34) {
 }else {
     computerChoice = "scissors";
 }
+
 function compare(choice1, choice2) {
     if (choice1 === choice2) {
         pScore.innerHTML = pScore.innerHTML;
